@@ -25,6 +25,7 @@ try
 }
 catch (Exception $e)
 {
+	header('HTTP', true, 500);
 	echo 'json の読み込みに失敗しました。。。';
 	exit;
 }
@@ -36,7 +37,8 @@ try
 }
 catch (Exception $e)
 {
-	// status.gitlab.com が落ちてる。。。
+	header('HTTP', true, 500);
+	echo 'status.gitlab.com が落ちてる。。。';
 	exit;
 }
 
@@ -115,6 +117,7 @@ if ($do_nortificate)
 	}
 	catch (Exception $e)
 	{
+		header('HTTP', true, 500);
 		echo 'チャットワークの送信に失敗しました。。。';
 		exit;
 	}
@@ -128,6 +131,7 @@ try
 }
 catch (Exception $e)
 {
+	header('HTTP', true, 500);
 	echo 'json の書き込みに失敗しました。。。';
 	exit;
 }
